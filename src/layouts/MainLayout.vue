@@ -1,9 +1,8 @@
 <template>
   <q-layout view="hHh LpR fFf">
-    <q-header elevated style="height: 70px">
+    <q-header elevated style="height: 70px; background-color: #F69E53;">
       <q-toolbar class="q-pa-lg">
-        <q-toolbar-title> Traductor Braille</q-toolbar-title>
-        <q-btn dense flat rounded color="bg-white" icon="fa-regular fa-heart" />
+        <q-toolbar-title>Braille Play</q-toolbar-title>
       </q-toolbar>
     </q-header>
 

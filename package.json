@@ -2,7 +2,7 @@
   "name": "braille",
   "version": "0.0.1",
   "description": "Braille code identifier project",
-  "productName": "Quasar App",
+  "productName": "Braille app",
   "author": "Dvalenciao1 <dv237968@gmail.com>",
   "private": true,
   "scripts": {
