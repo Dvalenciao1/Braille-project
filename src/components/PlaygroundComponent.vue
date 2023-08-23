@@ -1,6 +1,6 @@
 <template>
   <div
-    ref="elementToConvert"
+    id="my-node"
     :style="playgroundGrid"
     class="playground__grid playground__style"
   >
@@ -16,6 +16,7 @@
       ></CircleBrailleComponent>
     </div>
   </div>
+  <div id="exponer"></div>
   <q-btn
     class="q-mt-lg"
     rounded
@@ -25,28 +26,45 @@
   />
 </template>
 
-<script setup lang="ts">
-import { Ref, reactive, ref } from 'vue';
+<script setup>
+import { reactive, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import CircleBrailleComponent from './CircleBrailleComponent.vue';
-import htmlToImage from 'html-to-image';
+
+import domtoimage from 'dom-to-image-more';
+
+let img = new Image();
+const convert = () => {
+  domtoimage
+    .toPng(document.getElementById('my-node'))
+    .then(function (dataUrl) {
+      img.src = dataUrl;
+      var link = document.createElement('a');
+      link.download = 'my-image-name.jpeg';
+      link.href = dataUrl;
+      link.click();
+      //img.src contiene la imagen que necesitas
+    })
+    .catch(function (error) {
+      console.error('oops, something went wrong!', error);
+    });
+};
 
 const route = useRoute();
-const level: Ref<number> = ref(Number(route.params.level));
-const elementToConvert = ref(null);
-
+const level = ref(Number(route.params.level));
 
 const playgroundGrid = reactive({
   display: 'grid',
   'grid-template-columns': 'repeat(5, 1fr)',
   'grid-template-rows': `repeat(${level.value}, 150px)`,
 });
-const rounds: Ref<number> = ref(5);
-const current_round: Ref<number> = ref(1);
+const rounds = ref(5);
+const current_round = ref(1);
 const validateRound = () => {
   if (current_round.value <= rounds.value) {
-    alert('siga jugando');
+    convert();
     current_round.value++;
+    //img contiene la imagen
   } else {
     alert('El juego se acabao');
   }

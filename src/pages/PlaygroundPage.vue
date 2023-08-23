@@ -3,9 +3,9 @@
     <div class="row justify-center">
       <div class="title__grid col-12 col-md-4 q-pa-md">
         <span class="text-h6 col-3">Puntaje:</span>
-        <span class="text-h6 text-weight-regular text-right"
-          >{{ score }} Puntos</span
-        >
+        <span class="text-h6 text-weight-regular text-right">
+          {{ score }} Puntos
+        </span>
         <p class="text-h6 word__grid">
           Palabras: <span class="text-h6 text-weight-regular">{{ words }}</span>
         </p>
@@ -27,7 +27,6 @@ const level: Ref<number> = ref(Number(route.params.level));
 const score: Ref<number> = ref(50);
 const listWord: Ref<string[]> = ref([]);
 const words: Ref<string> = ref('');
-
 
 axios
   .get('https://clientes.api.greenborn.com.ar/public-random-word?c=10&l=5')
