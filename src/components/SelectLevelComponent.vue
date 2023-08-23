@@ -22,7 +22,7 @@
         "
         label="Principiante"
         no-caps
-        to="/init/play"
+        to="/init/play/1"
       />
       <q-btn
         class="q-ma-lg col-2"
@@ -34,7 +34,7 @@
         "
         label="Intermedio"
         no-caps
-        to="/init/play"
+        to="/init/play/2"
       />
       <q-btn
         class="q-ma-lg col-2"
@@ -46,19 +46,7 @@
         "
         label="Avanzado"
         no-caps
-        to="/init/play"
-      />
-      <q-btn
-        class="q-ma-lg col-2"
-        style="
-          background-color: #5373c6;
-          color: #fff;
-          border-radius: 10px;
-          font-size: 22px;
-        "
-        label="Experto"
-        no-caps
-        to="/init/play"
+        to="/init/play/3"
       />
     </q-card-actions>
   </q-card>
